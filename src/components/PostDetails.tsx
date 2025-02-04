@@ -32,7 +32,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
       .getComments(post.id, signal)
       .then(setComments)
       .catch(() => setHasError(!aborted))
-      .finally(() => setIsLoading(aborted));
+      .finally(() => setIsLoading(false));
 
     return () => {
       aborted = true;
@@ -42,13 +42,14 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
 
   const remove: <T>(array: T[], value: T) => T[] = useCallback(
     (array, value) => {
-      const index = array.indexOf(value);
+      const newArray = [...array]
+      const index = newArray.indexOf(value);
 
       if (index !== -1) {
         array.splice(index, 1);
       }
 
-      return array;
+      return newArray;
     },
     [],
   );

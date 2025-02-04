@@ -25,7 +25,7 @@ export const App = () => {
   useEffect(() => {
     getUsers()
       .then(setUsers)
-      .catch(() => {});
+      .catch(() => setHasError(true));
   }, []);
 
   const selectUser = useCallback(

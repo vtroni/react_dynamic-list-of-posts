@@ -155,7 +155,7 @@ export const NewCommentForm: React.FC<Props> = ({ onSubmit }) => {
           })}
         >
           <input
-            type="text"
+            type='email'
             name="email"
             id="comment-author-email"
             placeholder="email@test.com"
